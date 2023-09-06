@@ -1,0 +1,46 @@
+<!-- Container fluid  -->
+	<div class="container-fluid">
+		<!-- Sales Cards  -->
+		<div class="row">
+			<div class="col-md-12 mx-auto">
+				
+				<table class="table text-center">
+					<thead>
+						<tr>
+							<th width="10%" style="font-weight: bolder; font-size: 18px">Photo</th>
+							<th style="font-weight: bolder; font-size: 18px">Username</th>
+							<th style="font-weight: bolder; font-size: 18px">Password</th>
+							<th style="font-weight: bolder; font-size: 18px">Fullname</th>
+							<th style="font-weight: bolder; font-size: 18px">Email</th>
+							<th style="font-weight: bolder; font-size: 18px">Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="item in pager.accs">
+							<td class="px-0 m-0" width="10%"><img
+								src="/assets/avatar/{{item.photo}}" alt="" width="50%"
+								class="img-fluid"></td>
+							<td>{{item.username}}</td>
+							<td>{{item.password}}</td>
+							<td>{{item.fullname}}</td>
+							<td>{{item.email}}</td>
+							<td><a class='btn btn-warning btn-xs'
+								style="font-size: 14px" ng-click="edit(item)">
+									<span class="glyphicon glyphicon-edit"></span> Edit
+							</a> <a ng-click=""
+								style="font-size: 14px" class="btn btn-danger btn-xs"> <span
+									class="glyphicon glyphicon-remove"></span> Delete
+							</a></td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="text-center">
+					<a ng-click="pager.first()" class="btn btn-outline-success">First</a>
+					<a ng-click="pager.prev()" class="btn btn-outline-success">Previous</a>
+					<button class="btn">{{pager.page + 1 }} / {{pager.count}}</button>
+					<a ng-click="pager.next()" class="btn btn-outline-success">Next</a>
+					<a ng-click="pager.last()" class="btn btn-outline-success">Last</a>
+				</div>
+			</div>
+		</div>
+	</div>

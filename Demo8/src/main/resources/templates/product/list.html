@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{/layout/index :: dynamic(~{::main})}">
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<main class="row">
+	
+	<!-- Categories Start -->
+    <div class="container-fluid pt-5">
+        <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span
+                class="bg-secondary pr-3">Categories</span></h2>
+        <div class="row px-xl-5 pb-3">
+           
+            <div class="col-lg-3 col-md-4 col-sm-6 pb-1" th:each="c:${cates}" >
+                <a class="text-decoration-none"   th:href="@{|/product/list?cid=${c.id}|}">
+                    <div class="cat-item img-zoom d-flex align-items-center mb-4">
+                        
+                        <div >
+                            <h4>[[${c.name}]]</h6>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+        </div>
+    </div>
+    <!-- Categories End -->
+    
+    
+    
+    
+    
+    <!-- Products Start -->
+    <div class="container-fluid pt-5 pb-3">
+        <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Featured
+                Products</span></h2>
+        <div class="row px-xl-5">
+            <div class="col-lg-3 col-md-4 col-sm-6 pb-1"  th:each="p:${items}" >
+                <div class="product-item bg-light mb-4">
+                    <div class="product-img position-relative overflow-hidden">
+                    
+                        <img class="img-fluid"     th:src="@{|/assets/images/${p.image}|}" >
+                     
+                        <div class="product-action">
+                        <th:block th:fragment="item_id(id)">
+                            <a class="btn btn-outline-dark btn-square" th:attr="ng-click=@{|cart.add(${p.id})|}"><i class="fa fa-shopping-cart"></i></a>
+                            
+
+						
+					
+                            <a class="btn btn-outline-dark btn-square" href="#"><i class="far fa-heart"></i></a>
+                            <a class="btn btn-outline-dark btn-square" href="#"><i class="fa fa-sync-alt"></i></a>
+                            <a class="btn btn-outline-dark btn-square" href="#"><i class="fa fa-search"></i></a>
+                            </th:block>
+                        </div>
+                    </div>
+                    <div class="text-center py-4">
+                        <a class="h6 text-decoration-none text-truncate"  th:href="@{|/product/detail/${p.id}|}"   th:utext=${p.name}></a>
+                        <div class="d-flex align-items-center justify-content-center mt-2">
+                            <h5>$[[${p.price}]]</h5>
+                        </div>
+                        
+                        
+                        
+                        
+                        <div class="d-flex align-items-center justify-content-center mb-1">
+                            <small class="fa fa-star text-primary mr-1"></small>
+                            <small class="fa fa-star text-primary mr-1"></small>
+                            <small class="fa fa-star text-primary mr-1"></small>
+                            <small class="fa fa-star text-primary mr-1"></small>
+                            <small class="fa fa-star text-primary mr-1"></small>
+                            <small>(99)</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+    <!-- Products End -->
+    
+    
+    
+    
+    
+	
+		<div th:each="p:${items}" class="col-sm-4">
+			<!-- <div class="panel panel-primary poly-item text-center">
+				<div class="panel-heading">
+					<div class="panel-title " th:utext=${p.name}></div>
+				</div>
+				<div class="panel-body">
+					<a th:href="@{|/product/detail/${p.id}|}"> <img
+						th:src="@{|/assets/images/${p.image}|}">
+					</a>
+				</div>
+				<div class="panel-footer text-right">
+					<b class="pull-left">$[[${p.price}]]</b>
+					<button th:attr="ng-click=@{|cart.add(${p.id})|}"
+						class="btn btn-success">
+						<i class="glyphicon glyphicon-shopping-cart"></i>
+					</button>
+					<th:block th:fragment="item_id(id)">
+
+						<button class="btn btn-danger">
+							<i class="glyphicon glyphicon-heart"></i>
+						</button>
+						<button class="btn btn-primary">
+							<i class="glyphicon glyphicon-envelope"></i>
+						</button>
+					</th:block>
+				</div>
+			</div> -->
+		</div> 
+		
+		
+		
+		
+		
+		<!-- Offer Start -->
+    <div class="container-fluid pt-5 pb-3">
+        <div class="row px-xl-5">
+            <div class="col-md-6">
+                <div class="product-offer mb-30" style="height: 300px;">
+                    <img class="img-fluid" src="/assets/images/offer-1.jpg" alt="">
+                    <div class="offer-text">
+                        <h6 class="text-white text-uppercase">Save 20%</h6>
+                        <h3 class="text-white mb-3">Special Offer</h3>
+                        <a href="/" class="btn btn-primary">Shop Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="product-offer mb-30" style="height: 300px;">
+                    <img class="img-fluid" src="/assets/images/offer-2.jpg" alt="">
+                    <div class="offer-text">
+                        <h6 class="text-white text-uppercase">Save 20%</h6>
+                        <h3 class="text-white mb-3">Special Offer</h3>
+                        <a href="/" class="btn btn-primary">Shop Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Offer End -->
+		
+		
+		
+		
+		
+		
+		
+		
+	</main>
+
+</body>
+</html>

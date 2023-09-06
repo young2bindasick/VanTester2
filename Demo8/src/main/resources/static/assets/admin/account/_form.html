@@ -1,0 +1,77 @@
+
+<div class="panel panel-default">
+	<!-- Container fluid  -->
+	<div class="container-fluid">
+		<!-- Sales Cards  -->
+		<div class="row">
+			<div class="col-12 mx-auto">
+				<div class="panel-heading">
+					
+					<div class="bg-success text-light px-3 card-header mb-5">Account Control{{message}}</div>
+
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-sm-4 text-center">
+								<label for="image"> <img
+									ng-src="/assets/avatar/{{form.photo}}"
+									style="max-width: 100%" height="150px" />
+								</label>
+							</div>
+							<div class="col-sm-8">
+								<div class="row">
+									<div class="form-group col-sm-6">
+										<label>Username</label> <input ng-model="form.username"
+											class="form-control" />
+									</div>
+									<div class="form-group col-sm-6">
+										<label>Password</label> <input ng-model="form.password"
+											class="form-control" />
+									</div>
+								</div>
+								<div class="row">
+									<div class="form-group col-sm-6">
+										<label>Email</label> <input ng-model="form.email" type="email"
+											class="form-control" />
+									</div>
+
+									<div class="form-group col-sm-6">
+										<label>Fullname</label> <input ng-model="form.fullname"
+											type="text" class="form-control" />
+									</div>
+								</div>
+								<div class="row">
+									<div class="form-group col-sm-6">
+										<label>Photo</label> <input type="file" class="form-control"
+											id="image"
+											onchange="angular.element(this).scope().imageChanged(this.files)">
+									</div>
+									<div class="form-group col-sm-6">
+										<label>Roles</label>
+										<div class="form-control">
+											<div class="form-check ps-0">
+												<label ng-repeat="r in roles" class="form-check-label me-2" for="inlineFormCheck">
+													<input ng-model="selectedRole" ng-value="r" class="form-check-input1" type="checkbox" id="inlineFormCheck" ng-checked="selection.indexOf(r)>-1" ng-click="toggleRole(r)">
+													{{r.name}}
+												</label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="panel-footer text-center">
+					<button style="width: 100px;" type="submit" class="btn btn-success"
+						ng-click="create()">Insert</button>
+					<button style="width: 100px;" type="submit" class="btn btn-success"
+						ng-click="update()">Update</button>
+					<button style="width: 100px;" type="submit" class="btn btn-success"
+						ng-click="delete(form)">Delete</button>
+					<button style="width: 100px;" class="btn btn-success"
+						ng-click="reset()">Reset</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
